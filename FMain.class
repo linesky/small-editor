@@ -1,0 +1,57 @@
+' Gambas class file
+
+Public changed As Boolean = False
+Public fileName As String = "/home/pi/new.txt"
+Public fileName2 As String = "/home/pi/new.txt"
+Public Sub saveFile()
+  Dim f1 As File
+  f1 = Open fileName2 For Create
+    Print #f1, TextArea1.Text
+  Close f1
+  fileName = fileName2
+End
+
+Public Sub saveFiles()
+  fileName2 = InputBox("file name and path", "save as", fileName)
+  If fileName2 <> "" Then saveFile()
+End
+
+Public Sub Form_Open()
+changed = False
+End
+
+Public Sub TextArea1_Change()
+changed = True
+End
+
+Public Sub new_Click()
+  If changed Then saveFiles()
+  changed = False
+  TextArea1.Text = ""
+End
+
+Public Sub save_Click()
+  saveFiles()  
+End
+
+Public Sub open_Click()
+  Dim f1 As File
+  Dim a As String
+  fileName2 = InputBox("file name and path", "open as", fileName)  
+  If fileName2 <> "" Then
+    fileName = fileName2
+    f1 = Open fileName2 For Input
+    TextArea1.Text = ""
+      Do
+        Line Input #f1, a
+        TextArea1.Text = TextArea1.Text & "\n" & a
+      Loop While Not Eof(f1)
+    Close f1 
+  End If
+End
+
+Public Sub ends_Click()
+
+  FMain.Close
+
+End

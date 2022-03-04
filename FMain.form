@@ -1,0 +1,28 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,50,50)
+  Background = &HBFBFBF&
+  Foreground = &H000000&
+  { file Menu
+    Text = ("file")
+    { new Menu
+      Text = ("new")
+    }
+    { save Menu
+      Text = ("save")
+    }
+    { open Menu
+      Text = ("opens")
+    }
+    { ends Menu
+      Text = ("ends")
+    }
+  }
+  { TextArea1 TextArea
+    MoveScaled(0,0,50,52)
+    Font = Font["FreeMono"]
+    Background = &HBFBFBF&
+    Foreground = &H000000&
+  }
+}
