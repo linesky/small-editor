@@ -57,3 +57,7 @@ Public Sub form_Close()
   If changed Then saveFiles()
   changed = False
 End
+Public Sub form_Resize()
+  TextArea1.Width = Me.Width - 70  
+  TextArea1.Height = Me.Height - 70  
+End
