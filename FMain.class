@@ -51,7 +51,9 @@ Public Sub open_Click()
 End
 
 Public Sub ends_Click()
-
   FMain.Close
-
+End
+Public Sub form_Close()
+  If changed Then saveFiles()
+  changed = False
 End
